@@ -1,14 +1,9 @@
-// 1. decimal to other base system
-// 2. other base system to decimal
-// 3. other base system to other base system
-
-var input = 23
-var base = 10
-
 //------------------------------------------------------
 // 1. decimal to other base system
 // inval is starting number, sys is the output number system
 function fromDecimal(inval, sys){
+
+  if (! checkBase(inval,sys)) {return 0}
 
   //force default system
   if (sys<=1 || sys==undefined){ sys = 2 }
@@ -35,7 +30,7 @@ function fromDecimal(inval, sys){
 // 2. other base system to decimal
 // orig is the base system of the input inval
 function toDecimal(inval, orig){
-
+  if (! checkBase(inval,orig)) {return 0}
   //force default system
   if (orig<=1 || orig==undefined){ orig = 2 }
 
@@ -101,4 +96,17 @@ function hexprefix(){
     document.getElementById("result").innerHTML = "0x"+store
   }
 
+}
+
+//------------------------------------------
+// raises alert and returns False if digits are larger than the base value
+function checkBase(number, base){
+  var strArr = number.toString().split("")
+  for (var i=0; i<strArr.length; i++) {
+    if (parseInt(strArr[i]) >= base) {
+      alert("One or more digits are larger than the base value.\nPlease enter a valid input/base combination")
+      return false
+    }
+  }
+  return true
 }

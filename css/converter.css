@@ -1,3 +1,13 @@
+
+html {
+  background: url(../images/background.svg);
+  background-size: auto auto;
+}
+
+.container,body {
+  background: transparent;
+}
+
 .jumbotron {
   background-color: #8698a8;
   color: #eaf4fc;
@@ -16,14 +26,18 @@
   color: #5d3b99;
 }
 
+h2, #desc {
+  text-align: center;
+}
+
 h3 {
   font-weight: bold;
 }
 
-
-body {
-  background-color: #d7ebef;
-}
+/*body {
+  background: url(../images/background.svg);
+  background-size: auto auto;
+}*/
 
 .navbar-fixed-bottom {
   background-color: #ede8ff;
