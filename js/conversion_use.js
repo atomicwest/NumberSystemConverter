@@ -85,3 +85,20 @@ function toOther(){
   }
 
 }
+
+
+//------------------------------------------
+
+function hexprefix(){
+
+  var store = document.getElementById("result").innerHTML
+
+  if (store.substring(0,2)=="0x"){
+    document.getElementById("hex").innerHTML = "Add Hex Prefix"
+    document.getElementById("result").innerHTML = store.substring(2,store.length)
+  } else {
+    document.getElementById("hex").innerHTML = "Remove Hex Prefix"
+    document.getElementById("result").innerHTML = "0x"+store
+  }
+
+}

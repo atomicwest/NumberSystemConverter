@@ -3,7 +3,33 @@
   color: #eaf4fc;
 }
 
-.form-control{
+.btn-primary {
+  background-color: #7f61f4;
+}
+
+/*.col-lg-3{
+  text-align: center;
+}*/
+
+#result {
+  font-size: 30px;
+  color: #5d3b99;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+
+body {
+  background-color: #d7ebef;
+}
+
+.navbar-fixed-bottom {
+  background-color: #ede8ff;
+}
+
+/*.form-control{
   -webkit-border-radius: 3px !important;
   -moz-border-radius: 3px !important;
   border-radius: 3px !important;
@@ -11,4 +37,4 @@
 
 .text-center {
   text-align: center;
-}
+}*/
