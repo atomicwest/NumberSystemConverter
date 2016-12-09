@@ -1,3 +1,7 @@
+// Jesson Go; December 9, 2016
+//ogjdne@gmail.com
+//github.com/atomicwest
+
 //------------------------------------------------------
 // 1. decimal to other base system
 // inval is starting number, sys is the output number system
