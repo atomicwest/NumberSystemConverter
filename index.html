@@ -3,14 +3,31 @@
   <head>
     <meta charset="utf-8">
     <title>Number System Converter</title>
-    <script type="text/javascript">
+    <script type="text/javascript" src="js/conversion_use.js">
 
     </script>
 
   </head>
   <body>
     <h1>Converter</h1>
-    <h3>Binary</h3>
-    <input type="button" name="binaryconv" value="">
+
+    <h3>Convert from</h3>
+    <h4>Number</h4>
+    <input type="text" id="convfrom" value="">
+    <h4>Base</h4>
+    <input type="text" id="origbase" value="">
+
+    <h3>Convert to</h3>
+    <h4>Base</h4>
+    <input type="text" id="endbase" value="">
+
+    <input type="button" name="conversion" value="Convert"
+        OnClick="toOther()">
+
+    <h3>Result: </h3>
+
+    <p id="testarea"></p>
+
+    <p id="result"></p>
   </body>
 </html>
