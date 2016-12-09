@@ -78,7 +78,10 @@ function toOther(){
     output = fromDecimal(convert,outsys)
   }
 
-  document.getElementById("testarea").innerHTML = "the function is kind of running"
-  document.getElementById("result").innerHTML = output
+  if (inval==0){
+      document.getElementById("result").innerHTML = "0"
+  } else {
+      document.getElementById("result").innerHTML = output
+  }
 
 }
