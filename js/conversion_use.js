@@ -78,13 +78,13 @@ function toOther(){
   }
 
   if (inval==0){
-      document.getElementById("result").innerHTML = "0"
+      document.getElementById("result").value = "0"
   } else if (! checkBase(inval, orig)) {
-      document.getElementById("result").innerHTML = "Re-enter input number and/or base"
+      document.getElementById("result").value = "Re-enter input number and/or base"
   } else if (! checkBase(output, outsys)) {
-      document.getElementById("result").innerHTML = "Re-enter output base"
+      document.getElementById("result").value = "Re-enter output base"
   } else {
-      document.getElementById("result").innerHTML = output
+      document.getElementById("result").value = output
   }
 }
 
@@ -93,14 +93,14 @@ function toOther(){
 
 function hexprefix(){
 
-  var store = document.getElementById("result").innerHTML
+  var store = document.getElementById("result").value
 
   if (store.substring(0,2)=="0x"){
     document.getElementById("hex").innerHTML = "Add Hex Prefix"
-    document.getElementById("result").innerHTML = store.substring(2,store.length)
+    document.getElementById("result").value = store.substring(2,store.length)
   } else {
     document.getElementById("hex").innerHTML = "Remove Hex Prefix"
-    document.getElementById("result").innerHTML = "0x"+store
+    document.getElementById("result").value = "0x"+store
   }
 
 }
@@ -118,4 +118,12 @@ function checkBase(number, base){
     }
   }
   return true
+}
+
+//------------------------------------------
+function clearfield(){
+  document.getElementById("convfrom").value = 0
+  document.getElementById("origbase").value = 2
+  document.getElementById("endbase").value = 2
+  document.getElementById("result").value = 0
 }
