@@ -58,31 +58,31 @@ function toDecimal(inval, orig){
 // orig is the starting base, outsys is the output base
 function toOther(){
 
-  var inval = parseInt(document.getElementById("convfrom").value)
-  var orig = parseInt(document.getElementById("origbase").value)
-  var outsys = parseInt(document.getElementById("endbase").value)
-  var output
+  var inval = document.getElementById("convfrom").value;
+  var orig = document.getElementById("origbase").value;
+  var outsys = document.getElementById("endbase").value;
+  var output;
 
   //force default systems
   if (orig<=1 || orig==undefined){ orig = 2 }
   if (outsys<=1 || outsys==undefined){ outsys = 2 }
 
-  var convert
+  var convert;
   if (orig==10){
-    output = fromDecimal(inval, outsys)
+    output = fromDecimal(inval, outsys);
   } else if (orig<=0) {
     return
   } else {
-    convert = parseInt(toDecimal(inval,orig))
-    output = fromDecimal(convert,outsys)
+    convert = parseInt(toDecimal(inval,orig));
+    output = fromDecimal(convert,outsys);
   }
 
   if (inval==0){
-      document.getElementById("result").value = "0"
+      document.getElementById("result").value = "0";
   } else if (! checkBase(inval, orig)) {
-      document.getElementById("result").value = "Re-enter input number and/or base"
+      document.getElementById("result").value = "Re-enter input number and/or base";
   } else if (! checkBase(output, outsys)) {
-      document.getElementById("result").value = "Re-enter output base"
+      document.getElementById("result").value = "Re-enter output base";
   } else {
       document.getElementById("result").value = output
   }
@@ -126,4 +126,16 @@ function clearfield(){
   document.getElementById("origbase").value = 2
   document.getElementById("endbase").value = 2
   document.getElementById("result").value = 0
+}
+
+//------------------------------------------
+function numalph() {
+  var obj={};
+  for (var j=0; j<10; j++){
+    obj[j.toString()] = j
+  }
+  for (var v=10; v<16; v++) {
+    obj[String.fromCharCode(v+55)] = v
+  }
+  return obj
 }
