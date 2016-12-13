@@ -32,7 +32,7 @@ casper.test.begin('Binary To Decimal', 1, function suite(test) {
     } );
 
     casper.thenClick('button#conversion', function() {
-        // casper.capture("filledin.png")
+        casper.capture("tests/casperjs/screenshots/BtD_filledin.png")
         var result = this.evaluate(function() {
             return document.querySelector('[id="result"]').value;
         });
@@ -56,7 +56,7 @@ casper.test.begin('Binary To Hexadecimal', 1, function suite(test) {
     } );
 
     casper.thenClick('button#conversion', function() {
-        // casper.capture("filledin.png")
+        casper.capture("tests/casperjs/screenshots/BtH_filledin.png")
         var result = this.evaluate(function() {
             return document.querySelector('[id="result"]').value;
         });
@@ -80,7 +80,7 @@ casper.test.begin('Decimal To Hexadecimal', 4, function suite(test) {
     } );
 
     casper.thenClick('button#conversion', function() {
-        // casper.capture("filledin.png")
+        casper.capture("tests/casperjs/screenshots/DtH_filledin.png")
         var result = this.evaluate(function() {
             return document.querySelector('[id="result"]').value;
         });
@@ -88,7 +88,7 @@ casper.test.begin('Decimal To Hexadecimal', 4, function suite(test) {
     });
 
     casper.thenClick('button#hex', function() {
-        // casper.capture("filledin.png")
+        casper.capture("tests/casperjs/screenshots/DtH_HexPrefix.png")
 
         var result = this.evaluate(function() {
             return document.querySelector('[id="result"]').value;
@@ -103,11 +103,81 @@ casper.test.begin('Decimal To Hexadecimal', 4, function suite(test) {
     });
 
     casper.thenClick('button#clearf', function() {
-        // casper.capture("filledin.png")
+        casper.capture("tests/casperjs/screenshots/DtH_clear.png")
         var result = this.evaluate(function() {
             return document.querySelector('[id="result"]').value;
         });
-        test.assertEquals(result, "0", "Result field has been cleared when ");
+        test.assertEquals(result, "0", "Result field has been cleared when Clear button is clicked");
+    });
+
+    casper.run(function() {
+        test.done();
+    });
+});
+
+//----------------------------------------------------------
+
+casper.test.begin('Hexadecimal to Binary', 2, function suite(test) {
+
+    casper.start(url, function(){
+        this.sendKeys("#convfrom","ABC");
+        this.sendKeys("#origbase","16");
+        this.sendKeys("#endbase","2");
+        // casper.capture("fill.png");
+    } );
+
+    casper.thenClick('button#conversion', function() {
+        casper.capture("tests/casperjs/screenshots/HtB_filledin.png")
+        var result = this.evaluate(function() {
+            return document.querySelector('[id="result"]').value;
+        });
+        test.assertEquals(result, "101010111100", "ABC base 16 = 101010111100 base 2");
+    });
+
+    casper.thenClick('button#clearf', function() {
+        casper.capture("tests/casperjs/screenshots/HtB_clear.png")
+        var result = this.evaluate(function() {
+            return document.querySelector('[id="result"]').value;
+        });
+        test.assertEquals(result, "0", "Result field has been cleared when Clear button is clicked");
+    });
+
+    casper.run(function() {
+        test.done();
+    });
+});
+
+//----------------------------------------------------------
+
+casper.test.begin('Hexadecimal to Decimal', 2, function suite(test) {
+
+    casper.start(url, function(){
+        this.sendKeys("#convfrom","DEF");
+        this.sendKeys("#origbase","16");
+        this.sendKeys("#endbase","10");
+        // casper.capture("fill.png");
+    } );
+
+    casper.thenClick('button#conversion', function() {
+        casper.capture("tests/casperjs/screenshots/HtD_Caps_filledin.png")
+        var result = this.evaluate(function() {
+            return document.querySelector('[id="result"]').value;
+        });
+        test.assertEquals(result, "3567", "DEF base 16 = 3567 base 10");
+    });
+
+    casper.thenOpen(url, function() {
+        this.sendKeys("#convfrom","def");
+        this.sendKeys("#origbase","16");
+        this.sendKeys("#endbase","10");
+    });
+    
+    casper.thenClick('button#conversion', function() {
+        casper.capture("tests/casperjs/screenshots/HtD_NoCaps_filledin.png")
+        var result = this.evaluate(function() {
+            return document.querySelector('[id="result"]').value;
+        });
+        test.assertEquals(result, "3567", "Script is indiscriminate to capitalization");
     });
 
     casper.run(function() {
@@ -127,7 +197,7 @@ casper.test.begin('Decimal To Binary', 1, function suite(test) {
     } );
 
     casper.thenClick('button#conversion', function() {
-        // casper.capture("filledin.png")
+        casper.capture("tests/casperjs/screenshots/DtB_filledin.png")
         var result = this.evaluate(function() {
             return document.querySelector('[id="result"]').value;
         });
